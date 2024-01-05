@@ -21,7 +21,10 @@ useState<Map<number, Member>>("memberList", () => {
 });
 </script>
 <template>
-  <div>
-    <TheBaseSection />
-  </div>
+  <header>
+    <h1>ルーティングサンプル</h1>
+  </header>
+  <main>
+    <NuxtPage />
+  </main>
 </template>
