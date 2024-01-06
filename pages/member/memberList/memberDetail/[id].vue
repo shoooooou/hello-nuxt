@@ -13,16 +13,6 @@ const localNote = computed((): string => {
 </script>
 
 <template>
-  <h1>会員管理</h1>
-  <nav id="breadcrumbs">
-    <ul>
-      <li><nuxt-link :to="{ name: `index` }">TOP</nuxt-link></li>
-      <li>
-        <nuxt-link :to="{ name: `member-memberList` }">会員リスト</nuxt-link>
-      </li>
-      <li>会員詳細情報</li>
-    </ul>
-  </nav>
   <section>
     <h2>会員詳細情報</h2>
     <dl>
@@ -39,3 +29,22 @@ const localNote = computed((): string => {
     </dl>
   </section>
 </template>
+<style scoped>
+#breadcrumbs ul li {
+  display: inline;
+  list-style-type: none;
+}
+#breadcrumbs {
+  margin-left: 10px;
+}
+#breadcrumbs ul {
+  padding-left: 10px;
+}
+#breadcrumbs ul li:before {
+  content: ">";
+  padding-right: 10px;
+}
+#breadcrumbs ul li:first-child:before {
+  content: none;
+}
+</style>

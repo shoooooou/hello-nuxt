@@ -15,16 +15,24 @@ const memberList = useState<Map<number, Member>>("memberList");
   <section>
     <h2>会員リスト</h2>
     <p>
-      新規登録は<NuxtLink :to="{ name: `member-memberAdd` }">こちら</NuxtLink>
+      新規登録は<NuxtLink :to="{ name: `member-memberList-memberAdd` }"
+        >こちら</NuxtLink
+      >
     </p>
+    <ul>
+      <li v-for="[id, member] in memberList" :key="id">
+        <NuxtLink
+          :to="{
+            name: `member-memberList-memberDetail-id`,
+            params: { id: id },
+          }"
+        >
+          IDが{{ id }}の{{ member.name }}さん
+        </NuxtLink>
+      </li>
+    </ul>
   </section>
-  <ul>
-    <li v-for="[id, member] in memberList" :key="id">
-      <NuxtLink :to="{ name: `member-memberDetail-id`, params: { id: id } }">
-        IDが{{ id }}の{{ member.name }}さん
-      </NuxtLink>
-    </li>
-  </ul>
+  <NuxtPage />
 </template>
 <style scoped>
 #breadcrumbs ul li {
@@ -44,7 +52,5 @@ const memberList = useState<Map<number, Member>>("memberList");
 #breadcrumbs ul li:first-child:before {
   content: none;
 }
-
-
 </style>
 ```

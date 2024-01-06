@@ -28,3 +28,22 @@ useState<Map<number, Member>>("memberList", () => {
     <NuxtPage />
   </main>
 </template>
+<style>
+#breadcrumbs ul li {
+  display: inline;
+  list-style-type: none;
+}
+#breadcrumbs {
+  margin-left: 10px;
+}
+#breadcrumbs ul {
+  padding-left: 10px;
+}
+#breadcrumbs ul li:before {
+  content: ">";
+  padding-right: 10px;
+}
+#breadcrumbs ul li:first-child:before {
+  content: none;
+}
+</style>

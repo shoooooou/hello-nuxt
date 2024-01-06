@@ -6,7 +6,7 @@ interface Props {
 }
 const props = defineProps<Props>();
 const memberList = useState<Map<number, Member>>("memberList");
-const member = memberList.value.get(props.id);
+const member = memberList.value.get(props.id) as Member;
 
 const localNote = computed(() => {
   return member.note || "--";
@@ -26,7 +26,7 @@ const pointUp = () => {
       <dt>メールアドレス</dt>
       <dd>{{ member.email }}</dd>
       <dt>備考</dt>
-      <dd>{{ member.localNote }}</dd>
+      <dd>{{ member.note }}</dd>
     </dl>
     <button @click="pointUp">ポイント加算</button>
   </section>
